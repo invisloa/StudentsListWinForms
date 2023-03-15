@@ -42,7 +42,7 @@
 			// 
 			// txtBoxName
 			// 
-			txtBoxName.Location = new Point(722, 174);
+			txtBoxName.Location = new Point(146, 52);
 			txtBoxName.Margin = new Padding(5);
 			txtBoxName.MaxLength = 16;
 			txtBoxName.Name = "txtBoxName";
@@ -51,7 +51,7 @@
 			// 
 			// txtBoxLastName
 			// 
-			txtBoxLastName.Location = new Point(722, 259);
+			txtBoxLastName.Location = new Point(146, 137);
 			txtBoxLastName.Margin = new Padding(5);
 			txtBoxLastName.MaxLength = 16;
 			txtBoxLastName.Name = "txtBoxLastName";
@@ -60,7 +60,7 @@
 			// 
 			// txtBoxStudentsId
 			// 
-			txtBoxStudentsId.Location = new Point(722, 345);
+			txtBoxStudentsId.Location = new Point(146, 223);
 			txtBoxStudentsId.Margin = new Padding(5);
 			txtBoxStudentsId.MaxLength = 6;
 			txtBoxStudentsId.Name = "txtBoxStudentsId";
@@ -71,7 +71,7 @@
 			// 
 			NameLabel.AutoSize = true;
 			NameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-			NameLabel.Location = new Point(534, 174);
+			NameLabel.Location = new Point(25, 59);
 			NameLabel.Margin = new Padding(5, 0, 5, 0);
 			NameLabel.Name = "NameLabel";
 			NameLabel.Size = new Size(62, 25);
@@ -82,7 +82,7 @@
 			// 
 			LastNameLabel.AutoSize = true;
 			LastNameLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-			LastNameLabel.Location = new Point(534, 259);
+			LastNameLabel.Location = new Point(25, 144);
 			LastNameLabel.Margin = new Padding(5, 0, 5, 0);
 			LastNameLabel.Name = "LastNameLabel";
 			LastNameLabel.Size = new Size(97, 25);
@@ -93,7 +93,7 @@
 			// 
 			StudentsNoLabel.AutoSize = true;
 			StudentsNoLabel.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-			StudentsNoLabel.Location = new Point(534, 345);
+			StudentsNoLabel.Location = new Point(25, 230);
 			StudentsNoLabel.Margin = new Padding(5, 0, 5, 0);
 			StudentsNoLabel.Name = "StudentsNoLabel";
 			StudentsNoLabel.Size = new Size(111, 25);
@@ -102,7 +102,7 @@
 			// 
 			// btnSumbit
 			// 
-			btnSumbit.Location = new Point(645, 436);
+			btnSumbit.Location = new Point(146, 302);
 			btnSumbit.Name = "btnSumbit";
 			btnSumbit.Size = new Size(123, 39);
 			btnSumbit.TabIndex = 6;
@@ -112,7 +112,7 @@
 			// 
 			// btnShowStudents
 			// 
-			btnShowStudents.Location = new Point(657, 515);
+			btnShowStudents.Location = new Point(125, 366);
 			btnShowStudents.Name = "btnShowStudents";
 			btnShowStudents.Size = new Size(176, 57);
 			btnShowStudents.TabIndex = 7;
@@ -123,17 +123,17 @@
 			// dgvStudentsList
 			// 
 			dgvStudentsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dgvStudentsList.Location = new Point(31, 132);
+			dgvStudentsList.Location = new Point(518, 129);
 			dgvStudentsList.Name = "dgvStudentsList";
 			dgvStudentsList.RowTemplate.Height = 25;
-			dgvStudentsList.Size = new Size(495, 441);
+			dgvStudentsList.Size = new Size(739, 441);
 			dgvStudentsList.TabIndex = 8;
 			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(11F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1257, 750);
+			ClientSize = new Size(1269, 582);
 			Controls.Add(dgvStudentsList);
 			Controls.Add(btnShowStudents);
 			Controls.Add(btnSumbit);
@@ -146,7 +146,7 @@
 			Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
 			Margin = new Padding(5);
 			Name = "Form1";
-			Text = "Name";
+			Text = "Students library";
 			((System.ComponentModel.ISupportInitialize)dgvStudentsList).EndInit();
 			ResumeLayout(false);
 			PerformLayout();

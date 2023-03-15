@@ -1,3 +1,6 @@
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 namespace profZawadzkiLesson1
 {
 	public partial class Form1 : Form
@@ -7,8 +10,8 @@ namespace profZawadzkiLesson1
 		public Form1()
 		{
 			InitializeComponent();
-			dgvStudentsList.ColumnCount = 10;
-			dgvStudentsList.RowCount = 10;
+			dgvStudentsList.ColumnCount = 4;
+			dgvStudentsList.RowCount = 1;
 			dgvStudentsList.Columns[0].HeaderText = "lp.";
 			dgvStudentsList.Columns[0].Width = 50;
 			dgvStudentsList.Columns[1].HeaderText = "Name";
@@ -17,7 +20,6 @@ namespace profZawadzkiLesson1
 			dgvStudentsList.Columns[2].Width = columnsHeaderWidth;
 			dgvStudentsList.Columns[3].HeaderText = "Students Id";
 			dgvStudentsList.Columns[3].Width = columnsHeaderWidth;
-
 		}
 
 		private void btnSumbit_Click(object sender, EventArgs e)
@@ -26,21 +28,24 @@ namespace profZawadzkiLesson1
 			string lastName = txtBoxLastName.Text;
 			int studenstId;
 			if (!int.TryParse(txtBoxStudentsId.Text, out studenstId))
-			{ MessageBox.Show("BAD DATA!!!"); }
+			{
+				MessageBox.Show("BAD DATA!!!");
+				return;
+			}
 			StudentsList.Add(new Student(name, lastName, studenstId));
 			ClearTxtControls();
-
-
-
 		}
 
 		private void btnShowStudents_Click(object sender, EventArgs e)
 		{
+			dgvStudentsList.Rows.Clear();
 			int currentLpNumber = 1;
 			foreach (Student student in StudentsList)
 			{
 				string[] tab = student.ToString().Split(' ');
-				dgvStudentsList.Rows.Add(tab);
+				object[] rowItems = new object[] { currentLpNumber }.Concat(tab).ToArray();
+				dgvStudentsList.Rows.Add(rowItems);
+				currentLpNumber++;
 			}
 		}
 		void ClearTxtControls()
