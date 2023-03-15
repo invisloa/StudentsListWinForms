@@ -5,21 +5,14 @@ namespace profZawadzkiLesson1
 {
 	public partial class Form1 : Form
 	{
+		StudentsListGenerator listGenerator = new StudentsListGenerator();
 		public List<Student> StudentsList = new List<Student>();
 		int columnsHeaderWidth = 200;
 		public Form1()
 		{
 			InitializeComponent();
-			dgvStudentsList.ColumnCount = 4;
-			dgvStudentsList.RowCount = 1;
-			dgvStudentsList.Columns[0].HeaderText = "lp.";
-			dgvStudentsList.Columns[0].Width = 50;
-			dgvStudentsList.Columns[1].HeaderText = "Name";
-			dgvStudentsList.Columns[1].Width = columnsHeaderWidth;
-			dgvStudentsList.Columns[2].HeaderText = "Last Name";
-			dgvStudentsList.Columns[2].Width = columnsHeaderWidth;
-			dgvStudentsList.Columns[3].HeaderText = "Students Id";
-			dgvStudentsList.Columns[3].Width = columnsHeaderWidth;
+			StudentsList = listGenerator.MakeStudentsList();
+
 		}
 
 		private void btnSumbit_Click(object sender, EventArgs e)
@@ -53,6 +46,11 @@ namespace profZawadzkiLesson1
 			txtBoxName.Text = string.Empty;
 			txtBoxLastName.Text = string.Empty;
 			txtBoxStudentsId.Text = string.Empty;
+		}
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
