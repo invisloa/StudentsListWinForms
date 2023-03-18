@@ -44,7 +44,7 @@
 			btnSumbit = new Button();
 			panel1 = new Panel();
 			label1 = new Label();
-			textBox1 = new TextBox();
+			SearchBox = new TextBox();
 			((System.ComponentModel.ISupportInitialize)dgvStudentsList).BeginInit();
 			SuspendLayout();
 			// 
@@ -145,6 +145,7 @@
 			btnClearStudentsList.TabIndex = 9;
 			btnClearStudentsList.Text = "Clear students";
 			btnClearStudentsList.UseVisualStyleBackColor = true;
+			btnClearStudentsList.Click += btnClearStudentsList_Click;
 			// 
 			// dgvStudentsList
 			// 
@@ -221,18 +222,18 @@
 			label1.TabIndex = 11;
 			label1.Text = "Quick Search";
 			// 
-			// textBox1
+			// SearchBox
 			// 
-			textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			textBox1.Location = new Point(642, 92);
-			textBox1.MaximumSize = new Size(190, 25);
-			textBox1.MinimumSize = new Size(190, 25);
-			textBox1.Name = "textBox1";
-			textBox1.PlaceholderText = "Type search criteria...";
-			textBox1.Size = new Size(190, 25);
-			textBox1.TabIndex = 12;
-			textBox1.TextChanged += textBox1_TextChanged;
+			SearchBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			SearchBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			SearchBox.Location = new Point(642, 92);
+			SearchBox.MaximumSize = new Size(190, 25);
+			SearchBox.MinimumSize = new Size(190, 25);
+			SearchBox.Name = "SearchBox";
+			SearchBox.PlaceholderText = "Type search criteria...";
+			SearchBox.Size = new Size(190, 25);
+			SearchBox.TabIndex = 12;
+			SearchBox.TextChanged += SearchBox_TextChanged;
 			// 
 			// Form1
 			// 
@@ -240,7 +241,7 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(196, 210, 245);
 			ClientSize = new Size(844, 461);
-			Controls.Add(textBox1);
+			Controls.Add(SearchBox);
 			Controls.Add(label1);
 			Controls.Add(dgvStudentsList);
 			Controls.Add(btnSumbit);
@@ -281,6 +282,7 @@
 		private DataGridViewTextBoxColumn LastName;
 		private DataGridViewTextBoxColumn StudentsID;
 		private Label label1;
-		private TextBox textBox1;
+		private TextBox SearchBox;
+		private Button button1;
 	}
 }

@@ -5,14 +5,16 @@ namespace profZawadzkiLesson1
 {
 	public partial class Form1 : Form
 	{
+
 		StudentsListGenerator listGenerator = new StudentsListGenerator();
 		public List<Student> StudentsList = new List<Student>();
-		int columnsHeaderWidth = 200;
+		public List<Student> SearchList = new List<Student>();
+
+
 		public Form1()
 		{
 			InitializeComponent();
 			StudentsList = listGenerator.MakeStudentsList();
-
 		}
 
 		private void btnSumbit_Click(object sender, EventArgs e)
@@ -31,15 +33,7 @@ namespace profZawadzkiLesson1
 
 		private void btnShowStudents_Click(object sender, EventArgs e)
 		{
-			dgvStudentsList.Rows.Clear();
-			int currentLpNumber = 1;
-			foreach (Student student in StudentsList)
-			{
-				string[] tab = student.ToString().Split(' ');
-				object[] rowItems = new object[] { currentLpNumber }.Concat(tab).ToArray();
-				dgvStudentsList.Rows.Add(rowItems);
-				currentLpNumber++;
-			}
+			ShowStudentsFromList(StudentsList);
 		}
 		void ClearTxtControls()
 		{
@@ -48,9 +42,34 @@ namespace profZawadzkiLesson1
 			txtBoxStudentsId.Text = string.Empty;
 		}
 
-		private void textBox1_TextChanged(object sender, EventArgs e)
+		private void SearchBox_TextChanged(object sender, EventArgs e)
 		{
-
+			SearchList.Clear();
+			SearchList = StudentsList.Where(x => x.Name.ToLower().Contains(SearchBox.Text.ToLower())
+											|| x.LastName.ToLower().Contains(SearchBox.Text.ToLower())
+											|| x.StudentId.ToString().Contains(SearchBox.Text.ToLower())).ToList();
+			ShowStudentsFromList(SearchList);
 		}
+
+		private void btnClearStudentsList_Click(object sender, EventArgs e)
+		{
+			StudentsList = null;
+		}
+		void ShowStudentsFromList(List<Student> studentsList)
+		{
+			dgvStudentsList.Rows.Clear();
+			int currentLpNumber = 1;
+			if (studentsList != null)
+			{
+				foreach (Student student in studentsList)
+				{
+					string[] tab = student.ToString().Split(' ');
+					object[] rowItems = new object[] { currentLpNumber }.Concat(tab).ToArray();
+					dgvStudentsList.Rows.Add(rowItems);
+					currentLpNumber++;
+				}
+			}
+		}
+
 	}
 }
