@@ -16,6 +16,14 @@ namespace profZawadzkiLesson1
         public Form1()
         {
             InitializeComponent();
+            dgvStudentsList.ColumnCount = 4;
+            dgvStudentsList.RowCount = 1;
+            dgvStudentsList.Columns[0].HeaderText = "lp.";
+            dgvStudentsList.Columns[0].Width = 50;
+            dgvStudentsList.Columns[1].HeaderText = "Name";
+            dgvStudentsList.Columns[2].HeaderText = "Last Name";
+            dgvStudentsList.Columns[3].HeaderText = "Students Id";
+
             StudentsList = listGenerator.MakeStudentsList();
         }
 

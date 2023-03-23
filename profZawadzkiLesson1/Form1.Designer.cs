@@ -37,10 +37,6 @@
             btnShowStudents = new Button();
             btnClearStudentsList = new Button();
             dgvStudentsList = new DataGridView();
-            Lp = new DataGridViewTextBoxColumn();
-            FirstName = new DataGridViewTextBoxColumn();
-            LastName = new DataGridViewTextBoxColumn();
-            StudentsID = new DataGridViewTextBoxColumn();
             btnSumbit = new Button();
             panel1 = new Panel();
             label1 = new Label();
@@ -157,7 +153,6 @@
             dgvStudentsList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStudentsList.BackgroundColor = SystemColors.ButtonHighlight;
             dgvStudentsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudentsList.Columns.AddRange(new DataGridViewColumn[] { Lp, FirstName, LastName, StudentsID });
             dgvStudentsList.GridColor = SystemColors.ActiveCaptionText;
             dgvStudentsList.Location = new Point(12, 141);
             dgvStudentsList.Name = "dgvStudentsList";
@@ -165,30 +160,6 @@
             dgvStudentsList.RowTemplate.Height = 25;
             dgvStudentsList.Size = new Size(820, 308);
             dgvStudentsList.TabIndex = 8;
-            // 
-            // Lp
-            // 
-            Lp.HeaderText = "Lp.";
-            Lp.Name = "Lp";
-            Lp.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            FirstName.HeaderText = "Name";
-            FirstName.Name = "FirstName";
-            FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            LastName.HeaderText = "Last Name";
-            LastName.Name = "LastName";
-            LastName.ReadOnly = true;
-            // 
-            // StudentsID
-            // 
-            StudentsID.HeaderText = "Students ID";
-            StudentsID.Name = "StudentsID";
-            StudentsID.ReadOnly = true;
             // 
             // btnSumbit
             // 
@@ -277,10 +248,6 @@
         private DataGridView dgvStudentsList;
         private Button btnClearStudentsList;
         private Panel panel1;
-        private DataGridViewTextBoxColumn Lp;
-        private DataGridViewTextBoxColumn FirstName;
-        private DataGridViewTextBoxColumn LastName;
-        private DataGridViewTextBoxColumn StudentsID;
         private Label label1;
         private TextBox SearchBox;
         private Button button1;
