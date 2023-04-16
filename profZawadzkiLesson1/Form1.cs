@@ -65,6 +65,8 @@ namespace profZawadzkiLesson1
 			}
 
 			ClearTxtControls();
+			ShowStudentsFromList(StudentsList);
+
 		}
 		private void btnShowStudents_Click(object sender, EventArgs e)
 		{
