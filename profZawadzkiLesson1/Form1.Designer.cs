@@ -78,6 +78,7 @@
 			txtBoxStudentsId.Name = "txtBoxStudentsId";
 			txtBoxStudentsId.Size = new Size(87, 25);
 			txtBoxStudentsId.TabIndex = 2;
+			txtBoxStudentsId.KeyPress += SearchBox_KeyPress;
 			// 
 			// NameLabel
 			// 

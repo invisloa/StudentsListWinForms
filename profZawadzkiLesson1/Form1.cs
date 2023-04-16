@@ -87,10 +87,12 @@ namespace profZawadzkiLesson1
 											|| x.StudentId.ToString().Contains(SearchBox.Text.ToLower())).ToList();
 			ShowStudentsFromList(SearchList);
 		}
-		private void SearchBox_LostFocus(object sender, EventArgs e)
+		private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			SearchBox.Clear();
-
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
+			}
 		}
 
 
