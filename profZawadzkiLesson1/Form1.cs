@@ -5,13 +5,13 @@ using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace profZawadzkiLesson1
 {
 	public partial class Form1 : Form
 	{
 
-		StudentsListGenerator listGenerator = new StudentsListGenerator();
 		public List<Student> StudentsList = new List<Student>();
 		public List<Student> SearchList = new List<Student>();
 		public Form1()
@@ -24,8 +24,6 @@ namespace profZawadzkiLesson1
 			dgvStudentsList.Columns[1].HeaderText = "Name";
 			dgvStudentsList.Columns[2].HeaderText = "Last Name";
 			dgvStudentsList.Columns[3].HeaderText = "Students Id";
-
-			StudentsList = listGenerator.MakeStudentsList();
 		}
 
 		private void btnSumbit_Click(object sender, EventArgs e)
@@ -65,6 +63,8 @@ namespace profZawadzkiLesson1
 			}
 
 			ClearTxtControls();
+			ShowStudentsFromList(StudentsList);
+
 		}
 		private void btnShowStudents_Click(object sender, EventArgs e)
 		{
@@ -80,15 +80,15 @@ namespace profZawadzkiLesson1
 		private void SearchBox_TextChanged(object sender, EventArgs e)
 		{
 			SearchList.Clear();
-			SearchList = StudentsList.Where(x => x.Name.ToLower().Contains(SearchBox.Text.ToLower())
-											|| x.LastName.ToLower().Contains(SearchBox.Text.ToLower())
-											|| x.StudentId.ToString().Contains(SearchBox.Text.ToLower())).ToList();
+			SearchList = StudentsList.Where(x => x.StudentId.ToString().Contains(SearchBox.Text.ToLower())).ToList();
 			ShowStudentsFromList(SearchList);
 		}
-		private void SearchBox_LostFocus(object sender, EventArgs e)
+		private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			SearchBox.Clear();
-
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
+			}
 		}
 
 

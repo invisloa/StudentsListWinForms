@@ -34,7 +34,6 @@
 			NameLabel = new Label();
 			LastNameLabel = new Label();
 			StudentsNoLabel = new Label();
-			btnShowStudents = new Button();
 			btnClearStudentsList = new Button();
 			dgvStudentsList = new DataGridView();
 			btnSumbit = new Button();
@@ -47,7 +46,7 @@
 			// txtBoxName
 			// 
 			txtBoxName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtBoxName.Location = new Point(78, 6);
+			txtBoxName.Location = new Point(99, 23);
 			txtBoxName.Margin = new Padding(5);
 			txtBoxName.MaximumSize = new Size(190, 25);
 			txtBoxName.MaxLength = 16;
@@ -59,7 +58,7 @@
 			// 
 			txtBoxLastName.Anchor = AnchorStyles.Top;
 			txtBoxLastName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtBoxLastName.Location = new Point(355, 6);
+			txtBoxLastName.Location = new Point(376, 23);
 			txtBoxLastName.Margin = new Padding(5);
 			txtBoxLastName.MaximumSize = new Size(190, 25);
 			txtBoxLastName.MaxLength = 16;
@@ -71,19 +70,20 @@
 			// 
 			txtBoxStudentsId.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			txtBoxStudentsId.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtBoxStudentsId.Location = new Point(642, 6);
+			txtBoxStudentsId.Location = new Point(663, 23);
 			txtBoxStudentsId.Margin = new Padding(5);
 			txtBoxStudentsId.MaximumSize = new Size(87, 25);
 			txtBoxStudentsId.MaxLength = 6;
 			txtBoxStudentsId.Name = "txtBoxStudentsId";
 			txtBoxStudentsId.Size = new Size(87, 25);
 			txtBoxStudentsId.TabIndex = 2;
+			txtBoxStudentsId.KeyPress += SearchBox_KeyPress;
 			// 
 			// NameLabel
 			// 
 			NameLabel.AutoSize = true;
 			NameLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			NameLabel.Location = new Point(25, 9);
+			NameLabel.Location = new Point(46, 26);
 			NameLabel.Margin = new Padding(5, 0, 5, 0);
 			NameLabel.MaximumSize = new Size(43, 17);
 			NameLabel.Name = "NameLabel";
@@ -96,7 +96,7 @@
 			LastNameLabel.Anchor = AnchorStyles.Top;
 			LastNameLabel.AutoSize = true;
 			LastNameLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			LastNameLabel.Location = new Point(278, 9);
+			LastNameLabel.Location = new Point(299, 26);
 			LastNameLabel.Margin = new Padding(5, 0, 5, 0);
 			LastNameLabel.MaximumSize = new Size(67, 17);
 			LastNameLabel.Name = "LastNameLabel";
@@ -109,26 +109,12 @@
 			StudentsNoLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			StudentsNoLabel.AutoSize = true;
 			StudentsNoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			StudentsNoLabel.Location = new Point(555, 9);
+			StudentsNoLabel.Location = new Point(576, 26);
 			StudentsNoLabel.Margin = new Padding(5, 0, 5, 0);
 			StudentsNoLabel.Name = "StudentsNoLabel";
 			StudentsNoLabel.Size = new Size(77, 17);
 			StudentsNoLabel.TabIndex = 5;
 			StudentsNoLabel.Text = "Students no";
-			// 
-			// btnShowStudents
-			// 
-			btnShowStudents.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-			btnShowStudents.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			btnShowStudents.Location = new Point(42, 60);
-			btnShowStudents.MaximumSize = new Size(105, 25);
-			btnShowStudents.MinimumSize = new Size(105, 25);
-			btnShowStudents.Name = "btnShowStudents";
-			btnShowStudents.Size = new Size(105, 25);
-			btnShowStudents.TabIndex = 7;
-			btnShowStudents.Text = "Show students";
-			btnShowStudents.UseVisualStyleBackColor = true;
-			btnShowStudents.Click += btnShowStudents_Click;
 			// 
 			// btnClearStudentsList
 			// 
@@ -139,7 +125,7 @@
 			btnClearStudentsList.Name = "btnClearStudentsList";
 			btnClearStudentsList.Size = new Size(105, 25);
 			btnClearStudentsList.TabIndex = 9;
-			btnClearStudentsList.Text = "Clear students";
+			btnClearStudentsList.Text = "Clear list";
 			btnClearStudentsList.UseVisualStyleBackColor = true;
 			btnClearStudentsList.Click += btnClearStudentsList_Click;
 			// 
@@ -165,12 +151,12 @@
 			// 
 			btnSumbit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			btnSumbit.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			btnSumbit.Location = new Point(747, 6);
-			btnSumbit.MaximumSize = new Size(85, 25);
+			btnSumbit.Location = new Point(663, 56);
+			btnSumbit.MaximumSize = new Size(105, 25);
 			btnSumbit.Name = "btnSumbit";
-			btnSumbit.Size = new Size(85, 25);
+			btnSumbit.Size = new Size(105, 25);
 			btnSumbit.TabIndex = 6;
-			btnSumbit.Text = "Submit";
+			btnSumbit.Text = "Submit/Update";
 			btnSumbit.UseVisualStyleBackColor = true;
 			btnSumbit.Click += btnSumbit_Click;
 			// 
@@ -187,17 +173,17 @@
 			label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			label1.AutoSize = true;
 			label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label1.Location = new Point(531, 95);
+			label1.Location = new Point(265, 113);
 			label1.Name = "label1";
-			label1.Size = new Size(83, 17);
+			label1.Size = new Size(63, 17);
 			label1.TabIndex = 11;
-			label1.Text = "Quick Search";
+			label1.Text = "Search ID";
 			// 
 			// SearchBox
 			// 
 			SearchBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			SearchBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			SearchBox.Location = new Point(642, 92);
+			SearchBox.Location = new Point(376, 110);
 			SearchBox.MaximumSize = new Size(190, 25);
 			SearchBox.MinimumSize = new Size(190, 25);
 			SearchBox.Name = "SearchBox";
@@ -205,19 +191,19 @@
 			SearchBox.Size = new Size(190, 25);
 			SearchBox.TabIndex = 12;
 			SearchBox.TextChanged += SearchBox_TextChanged;
+			SearchBox.KeyPress += SearchBox_KeyPress;
 			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(11F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
-			BackColor = Color.FromArgb(196, 210, 245);
+			BackColor = Color.Silver;
 			ClientSize = new Size(844, 461);
 			Controls.Add(SearchBox);
 			Controls.Add(label1);
 			Controls.Add(dgvStudentsList);
 			Controls.Add(btnSumbit);
 			Controls.Add(btnClearStudentsList);
-			Controls.Add(btnShowStudents);
 			Controls.Add(StudentsNoLabel);
 			Controls.Add(LastNameLabel);
 			Controls.Add(NameLabel);
@@ -244,7 +230,6 @@
 		private Label LastNameLabel;
 		private Label StudentsNoLabel;
 		private Button btnSumbit;
-		private Button btnShowStudents;
 		private DataGridView dgvStudentsList;
 		private Button btnClearStudentsList;
 		private Panel panel1;
