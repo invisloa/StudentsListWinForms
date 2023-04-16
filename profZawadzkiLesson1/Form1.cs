@@ -63,6 +63,7 @@ namespace profZawadzkiLesson1
 				studentToChange.Name = name;
 				studentToChange.LastName = lastName;
 			}
+
 			ClearTxtControls();
 		}
 		private void btnShowStudents_Click(object sender, EventArgs e)
