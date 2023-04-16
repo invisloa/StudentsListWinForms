@@ -11,7 +11,7 @@ namespace profZawadzkiLesson1
 		List<Student> students = new List<Student>();
 		Random random = new Random();
 
-		// List of names and last names
+		// Lists of names and last names
 		string[] names = { "Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Heidi", "Ivan", "Judy" };
 		string[] lastNames = { "Anderson", "Baker", "Carter", "Davis", "Edwards", "Fisher", "Garcia", "Harris", "Irwin", "Johnson" };
 
