@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
 
 namespace profZawadzkiLesson1
 {
@@ -113,5 +114,37 @@ namespace profZawadzkiLesson1
 			}
 		}
 
+		private void button2_Click(object sender, EventArgs e)
+		{
+			string jsonString = JsonSerializer.Serialize(StudentsList);
+
+			// Write the JSON string to a file
+			File.WriteAllText("listaJson.json", jsonString);
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			string jsonString = File.ReadAllText("listaJson.json");
+
+			// Convert the JSON string to a List
+			List<Student> list = JsonSerializer.Deserialize<List<Student>>(jsonString);
+
+						ShowStudentsFromList(list);
+
+
+
+
+		}
+
+		string AllStudentsString(List<Student> studentsList)
+		{
+			var studentsString = string.Empty;
+			foreach (var item in studentsList)
+			{
+				studentsString += item.ToString() + "\n";
+
+			}
+			return studentsString;
+		}
 	}
 }

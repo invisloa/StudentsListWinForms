@@ -41,6 +41,8 @@
 			panel1 = new Panel();
 			label1 = new Label();
 			SearchBox = new TextBox();
+			button2 = new Button();
+			button3 = new Button();
 			((System.ComponentModel.ISupportInitialize)dgvStudentsList).BeginInit();
 			SuspendLayout();
 			// 
@@ -206,12 +208,34 @@
 			SearchBox.TabIndex = 12;
 			SearchBox.TextChanged += SearchBox_TextChanged;
 			// 
+			// button2
+			// 
+			button2.Location = new Point(319, 59);
+			button2.Name = "button2";
+			button2.Size = new Size(75, 23);
+			button2.TabIndex = 13;
+			button2.Text = "button2";
+			button2.UseVisualStyleBackColor = true;
+			button2.Click += button2_Click;
+			// 
+			// button3
+			// 
+			button3.Location = new Point(321, 107);
+			button3.Name = "button3";
+			button3.Size = new Size(75, 23);
+			button3.TabIndex = 14;
+			button3.Text = "button3";
+			button3.UseVisualStyleBackColor = true;
+			button3.Click += button3_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(11F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.FromArgb(196, 210, 245);
 			ClientSize = new Size(844, 461);
+			Controls.Add(button3);
+			Controls.Add(button2);
 			Controls.Add(SearchBox);
 			Controls.Add(label1);
 			Controls.Add(dgvStudentsList);
@@ -251,5 +275,7 @@
 		private Label label1;
 		private TextBox SearchBox;
 		private Button button1;
+		private Button button2;
+		private Button button3;
 	}
 }
