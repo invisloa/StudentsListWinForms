@@ -130,10 +130,6 @@ namespace profZawadzkiLesson1
 			List<Student> list = JsonSerializer.Deserialize<List<Student>>(jsonString);
 
 						ShowStudentsFromList(list);
-
-
-
-
 		}
 
 		string AllStudentsString(List<Student> studentsList)
