@@ -12,25 +12,27 @@ namespace profZawadzkiLesson1
 	public partial class Form1 : Form
 	{
 
-		public List<Student> StudentsList = new List<Student>();
-		public List<Student> SearchList = new List<Student>();
+		public List<Employee> StudentsList = new List<Employee>();
+		public List<Employee> SearchList = new List<Employee>();
 		public Form1()
 		{
 			InitializeComponent();
-			dgvStudentsList.ColumnCount = 4;
+			dgvStudentsList.ColumnCount = 5;
 			dgvStudentsList.RowCount = 1;
 			dgvStudentsList.Columns[0].HeaderText = "lp.";
 			dgvStudentsList.Columns[0].Width = 50;
 			dgvStudentsList.Columns[1].HeaderText = "Name";
 			dgvStudentsList.Columns[2].HeaderText = "Last Name";
-			dgvStudentsList.Columns[3].HeaderText = "Students Id";
+			dgvStudentsList.Columns[3].HeaderText = "Employee Id";
+			dgvStudentsList.Columns[4].HeaderText = "Deparetment";
 		}
 
 		private void btnSumbit_Click(object sender, EventArgs e)
 		{
 			string name = txtBoxName.Text;
 			string lastName = txtBoxLastName.Text;
-			int studenstId;
+			int employeeId;
+			string department = DepertmentTextBox.Text;
 			if (string.IsNullOrEmpty(name))
 			{
 				MessageBox.Show("Name is required.");
@@ -42,46 +44,54 @@ namespace profZawadzkiLesson1
 				MessageBox.Show("Last name is required.");
 				return;
 			}
-			if (!int.TryParse(txtBoxStudentsId.Text, out studenstId))
+			if (!int.TryParse(txtBoxStudentsId.Text, out employeeId))
 			{
 				MessageBox.Show("ID is required.");
 				return;
 			}
-
-
-			if (SearchBox.Text == "")
+			if (string.IsNullOrEmpty(department))
 			{
-				StudentsList.Add(new Student(name, lastName, studenstId));
+				MessageBox.Show("Department name is required.");
+				return;
+			}
+
+
+			if (SearchBox.Text == "" || dgvStudentsList.Rows.Count != 1)
+			{
+				StudentsList.Add(new Employee(name, lastName, employeeId, department));
 			}
 			else if (SearchBox.Text.Length > 0 && dgvStudentsList.Rows.Count == 1)
 			{
 				int searcherdID = Int32.Parse((dgvStudentsList.Rows[0].Cells[3].Value).ToString());
-				var studentToChange = StudentsList.FirstOrDefault(x => x.StudentId == searcherdID);
-				studentToChange.StudentId = studenstId;
-				studentToChange.Name = name;
-				studentToChange.LastName = lastName;
+				var employeeToChange = StudentsList.FirstOrDefault(x => x.employeeID == searcherdID);
+				employeeToChange.employeeID = employeeId;
+				employeeToChange.Name = name;
+				employeeToChange.LastName = lastName;
+				employeeToChange.Department = department;
 			}
 
 			ClearTxtControls();
-			ShowStudentsFromList(StudentsList);
+			ShowEmployeesFromList(StudentsList);
 
 		}
 		private void btnShowStudents_Click(object sender, EventArgs e)
 		{
-			ShowStudentsFromList(StudentsList);
+			ShowEmployeesFromList(StudentsList);
 		}
 		void ClearTxtControls()
 		{
 			txtBoxName.Text = string.Empty;
 			txtBoxLastName.Text = string.Empty;
 			txtBoxStudentsId.Text = string.Empty;
+			DepertmentTextBox.Text = string.Empty;
+			SearchBox.Text = string.Empty;
 		}
 
 		private void SearchBox_TextChanged(object sender, EventArgs e)
 		{
 			SearchList.Clear();
-			SearchList = StudentsList.Where(x => x.StudentId.ToString().Contains(SearchBox.Text.ToLower())).ToList();
-			ShowStudentsFromList(SearchList);
+			SearchList = StudentsList.Where(x => x.employeeID.ToString().Contains(SearchBox.Text.ToLower())).ToList();
+			ShowEmployeesFromList(SearchList);
 		}
 		private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
@@ -97,13 +107,13 @@ namespace profZawadzkiLesson1
 			StudentsList.Clear();
 			dgvStudentsList.Rows.Clear();
 		}
-		void ShowStudentsFromList(List<Student> studentsList)
+		void ShowEmployeesFromList(List<Employee> employeesList)
 		{
 			dgvStudentsList.Rows.Clear();
 			int currentLpNumber = 1;
-			if (studentsList != null)
+			if (employeesList != null)
 			{
-				foreach (Student student in studentsList)
+				foreach (Employee student in employeesList)
 				{
 					string[] tab = student.ToString().Split(' ');
 					string[] rowItems = new string[] { currentLpNumber.ToString() }.Concat(tab).ToArray();

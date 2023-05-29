@@ -40,13 +40,15 @@
 			panel1 = new Panel();
 			label1 = new Label();
 			SearchBox = new TextBox();
+			label2 = new Label();
+			DepertmentTextBox = new TextBox();
 			((System.ComponentModel.ISupportInitialize)dgvStudentsList).BeginInit();
 			SuspendLayout();
 			// 
 			// txtBoxName
 			// 
 			txtBoxName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtBoxName.Location = new Point(99, 23);
+			txtBoxName.Location = new Point(86, 17);
 			txtBoxName.Margin = new Padding(5);
 			txtBoxName.MaximumSize = new Size(190, 25);
 			txtBoxName.MaxLength = 16;
@@ -58,7 +60,7 @@
 			// 
 			txtBoxLastName.Anchor = AnchorStyles.Top;
 			txtBoxLastName.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtBoxLastName.Location = new Point(376, 23);
+			txtBoxLastName.Location = new Point(86, 59);
 			txtBoxLastName.Margin = new Padding(5);
 			txtBoxLastName.MaximumSize = new Size(190, 25);
 			txtBoxLastName.MaxLength = 16;
@@ -70,7 +72,7 @@
 			// 
 			txtBoxStudentsId.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			txtBoxStudentsId.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			txtBoxStudentsId.Location = new Point(663, 23);
+			txtBoxStudentsId.Location = new Point(461, 17);
 			txtBoxStudentsId.Margin = new Padding(5);
 			txtBoxStudentsId.MaximumSize = new Size(87, 25);
 			txtBoxStudentsId.MaxLength = 6;
@@ -83,7 +85,7 @@
 			// 
 			NameLabel.AutoSize = true;
 			NameLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			NameLabel.Location = new Point(46, 26);
+			NameLabel.Location = new Point(9, 17);
 			NameLabel.Margin = new Padding(5, 0, 5, 0);
 			NameLabel.MaximumSize = new Size(43, 17);
 			NameLabel.Name = "NameLabel";
@@ -96,7 +98,7 @@
 			LastNameLabel.Anchor = AnchorStyles.Top;
 			LastNameLabel.AutoSize = true;
 			LastNameLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			LastNameLabel.Location = new Point(299, 26);
+			LastNameLabel.Location = new Point(9, 59);
 			LastNameLabel.Margin = new Padding(5, 0, 5, 0);
 			LastNameLabel.MaximumSize = new Size(67, 17);
 			LastNameLabel.Name = "LastNameLabel";
@@ -109,17 +111,17 @@
 			StudentsNoLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			StudentsNoLabel.AutoSize = true;
 			StudentsNoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			StudentsNoLabel.Location = new Point(576, 26);
+			StudentsNoLabel.Location = new Point(374, 20);
 			StudentsNoLabel.Margin = new Padding(5, 0, 5, 0);
 			StudentsNoLabel.Name = "StudentsNoLabel";
-			StudentsNoLabel.Size = new Size(77, 17);
+			StudentsNoLabel.Size = new Size(81, 17);
 			StudentsNoLabel.TabIndex = 5;
-			StudentsNoLabel.Text = "Students no";
+			StudentsNoLabel.Text = "Employee ID";
 			// 
 			// btnClearStudentsList
 			// 
 			btnClearStudentsList.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			btnClearStudentsList.Location = new Point(42, 110);
+			btnClearStudentsList.Location = new Point(652, 17);
 			btnClearStudentsList.MaximumSize = new Size(105, 25);
 			btnClearStudentsList.MinimumSize = new Size(105, 25);
 			btnClearStudentsList.Name = "btnClearStudentsList";
@@ -151,7 +153,7 @@
 			// 
 			btnSumbit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			btnSumbit.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			btnSumbit.Location = new Point(663, 56);
+			btnSumbit.Location = new Point(652, 56);
 			btnSumbit.MaximumSize = new Size(105, 25);
 			btnSumbit.Name = "btnSumbit";
 			btnSumbit.Size = new Size(105, 25);
@@ -173,7 +175,7 @@
 			label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			label1.AutoSize = true;
 			label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label1.Location = new Point(265, 113);
+			label1.Location = new Point(531, 113);
 			label1.Name = "label1";
 			label1.Size = new Size(63, 17);
 			label1.TabIndex = 11;
@@ -183,7 +185,7 @@
 			// 
 			SearchBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			SearchBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			SearchBox.Location = new Point(376, 110);
+			SearchBox.Location = new Point(642, 110);
 			SearchBox.MaximumSize = new Size(190, 25);
 			SearchBox.MinimumSize = new Size(190, 25);
 			SearchBox.Name = "SearchBox";
@@ -193,12 +195,38 @@
 			SearchBox.TextChanged += SearchBox_TextChanged;
 			SearchBox.KeyPress += SearchBox_KeyPress;
 			// 
+			// label2
+			// 
+			label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			label2.AutoSize = true;
+			label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			label2.Location = new Point(374, 59);
+			label2.Margin = new Padding(5, 0, 5, 0);
+			label2.Name = "label2";
+			label2.Size = new Size(77, 17);
+			label2.TabIndex = 14;
+			label2.Text = "Depertment";
+			// 
+			// DepertmentTextBox
+			// 
+			DepertmentTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			DepertmentTextBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			DepertmentTextBox.Location = new Point(461, 56);
+			DepertmentTextBox.Margin = new Padding(5);
+			DepertmentTextBox.MaximumSize = new Size(87, 25);
+			DepertmentTextBox.MaxLength = 6;
+			DepertmentTextBox.Name = "DepertmentTextBox";
+			DepertmentTextBox.Size = new Size(87, 25);
+			DepertmentTextBox.TabIndex = 13;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(11F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.Silver;
 			ClientSize = new Size(844, 461);
+			Controls.Add(label2);
+			Controls.Add(DepertmentTextBox);
 			Controls.Add(SearchBox);
 			Controls.Add(label1);
 			Controls.Add(dgvStudentsList);
@@ -236,5 +264,7 @@
 		private Label label1;
 		private TextBox SearchBox;
 		private Button button1;
+		private Label label2;
+		private TextBox DepertmentTextBox;
 	}
 }
