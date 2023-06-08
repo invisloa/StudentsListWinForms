@@ -26,10 +26,10 @@ namespace profZawadzkiLesson1
 			dgvStudentsList.RowCount = 1;
 			dgvStudentsList.Columns[0].HeaderText = "lp.";
 			dgvStudentsList.Columns[0].Width = 50;
-			dgvStudentsList.Columns[1].HeaderText = "Name";
-			dgvStudentsList.Columns[2].HeaderText = "Last Name";
-			dgvStudentsList.Columns[3].HeaderText = "Employee Id";
-			dgvStudentsList.Columns[4].HeaderText = "Deparetment";
+			dgvStudentsList.Columns[1].HeaderText = "Imie";
+			dgvStudentsList.Columns[2].HeaderText = "Nazwisko";
+			dgvStudentsList.Columns[3].HeaderText = "Id";
+			dgvStudentsList.Columns[4].HeaderText = "Deparetament";
 		}
 
 		private void btnSumbit_Click(object sender, EventArgs e)
