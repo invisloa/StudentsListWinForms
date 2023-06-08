@@ -10,10 +10,8 @@ namespace profZawadzkiLesson1
 	{
 		int _employeeId;
 		string _departmentName;
-
 		public int employeeID { get => _employeeId; set => _employeeId = value; }
 		public string Department { get => _departmentName; set => _departmentName = value; }
-
 		public Employee(string name, string lastName, int employeeId, string department)
 		{
 			this.Name = name;

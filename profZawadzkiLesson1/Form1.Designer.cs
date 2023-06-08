@@ -42,8 +42,8 @@
 			SearchBox = new TextBox();
 			label2 = new Label();
 			DepertmentTextBox = new TextBox();
-			button2 = new Button();
-			button3 = new Button();
+			btnAktualizuj = new Button();
+			btnShowAll = new Button();
 			((System.ComponentModel.ISupportInitialize)dgvStudentsList).BeginInit();
 			SuspendLayout();
 			// 
@@ -221,31 +221,31 @@
 			DepertmentTextBox.Size = new Size(87, 25);
 			DepertmentTextBox.TabIndex = 13;
 			// 
-			// button2
+			// btnAktualizuj
 			// 
-			button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			button2.Location = new Point(182, 110);
-			button2.MaximumSize = new Size(105, 25);
-			button2.Name = "button2";
-			button2.Size = new Size(105, 25);
-			button2.TabIndex = 15;
-			button2.Text = "Aktualizuj";
-			button2.UseVisualStyleBackColor = true;
-			button2.Click += button2_Click;
+			btnAktualizuj.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			btnAktualizuj.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			btnAktualizuj.Location = new Point(187, 110);
+			btnAktualizuj.MaximumSize = new Size(105, 25);
+			btnAktualizuj.Name = "btnAktualizuj";
+			btnAktualizuj.Size = new Size(105, 25);
+			btnAktualizuj.TabIndex = 17;
+			btnAktualizuj.Text = "Aktualizuj";
+			btnAktualizuj.UseVisualStyleBackColor = true;
+			btnAktualizuj.Click += btnAktualizuj_Click;
 			// 
-			// button3
+			// btnShowAll
 			// 
-			button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-			button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			button3.Location = new Point(477, 110);
-			button3.MaximumSize = new Size(155, 25);
-			button3.Name = "button3";
-			button3.Size = new Size(155, 25);
-			button3.TabIndex = 16;
-			button3.Text = "Pokaż wszystkich";
-			button3.UseVisualStyleBackColor = true;
-			button3.Click += button3_Click;
+			btnShowAll.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			btnShowAll.Location = new Point(470, 110);
+			btnShowAll.MaximumSize = new Size(155, 25);
+			btnShowAll.MinimumSize = new Size(105, 25);
+			btnShowAll.Name = "btnShowAll";
+			btnShowAll.Size = new Size(155, 25);
+			btnShowAll.TabIndex = 18;
+			btnShowAll.Text = "Pokaż wszystkich";
+			btnShowAll.UseVisualStyleBackColor = true;
+			btnShowAll.Click += btnShowAll_Click;
 			// 
 			// Form1
 			// 
@@ -253,8 +253,8 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.Silver;
 			ClientSize = new Size(844, 461);
-			Controls.Add(button3);
-			Controls.Add(button2);
+			Controls.Add(btnShowAll);
+			Controls.Add(btnAktualizuj);
 			Controls.Add(label2);
 			Controls.Add(DepertmentTextBox);
 			Controls.Add(SearchBox);
@@ -296,7 +296,7 @@
 		private Button button1;
 		private Label label2;
 		private TextBox DepertmentTextBox;
-		private Button button2;
-		private Button button3;
+		private Button btnAktualizuj;
+		private Button btnShowAll;
 	}
 }

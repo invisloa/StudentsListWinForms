@@ -16,7 +16,6 @@ namespace profZawadzkiLesson1
 		string lastName;
 		int employeeId;
 		string department;
-
 		public List<Employee> EmployeesList = new List<Employee>();
 		public List<Employee> SearchList = new List<Employee>();
 		public Form1()
@@ -31,11 +30,8 @@ namespace profZawadzkiLesson1
 			dgvStudentsList.Columns[3].HeaderText = "Id";
 			dgvStudentsList.Columns[4].HeaderText = "Deparetament";
 		}
-
 		private void btnSumbit_Click(object sender, EventArgs e)
 		{
-
-
 			if (CanSaveCurrentInputData())
 			{
 				if ((EmployeesList.FirstOrDefault(x => x.employeeID == employeeId)) == null)
@@ -48,9 +44,7 @@ namespace profZawadzkiLesson1
 				else
 				{
 					MessageBox.Show($"Pracownik o nr ID: {employeeId} już istnieje");
-
 				}
-
 			}
 		}
 		void ClearTxtControls()
@@ -61,7 +55,6 @@ namespace profZawadzkiLesson1
 			DepertmentTextBox.Text = string.Empty;
 			SearchBox.Text = string.Empty;
 		}
-
 		private void SearchBox_TextChanged(object sender, EventArgs e)
 		{
 			SearchList.Clear();
@@ -75,8 +68,6 @@ namespace profZawadzkiLesson1
 				e.Handled = true;
 			}
 		}
-
-
 		private void btnClearStudentsList_Click(object sender, EventArgs e)
 		{
 			EmployeesList.Clear();
@@ -117,7 +108,6 @@ namespace profZawadzkiLesson1
 			{
 				MessageBox.Show("Niepoprawne dane do aktualizacji");
 				ClearTxtControls();
-
 			}
 		}
 		bool CanSaveCurrentInputData()
@@ -148,20 +138,24 @@ namespace profZawadzkiLesson1
 			}
 			ClearTxtControls();
 			return true;
-
 		}
-
 		private void button2_Click(object sender, EventArgs e)
 		{
-			UpdateEmployeeData();
-			ShowEmployeesFromList(EmployeesList);
 
 		}
-
 		private void button3_Click(object sender, EventArgs e)
 		{
-			ShowEmployeesFromList(EmployeesList);
+		}
 
+		private void btnAktualizuj_Click(object sender, EventArgs e)
+		{
+			UpdateEmployeeData();
+			ClearTxtControls();
+		}
+
+		private void btnShowAll_Click(object sender, EventArgs e)
+		{
+			ShowEmployeesFromList(EmployeesList);
 		}
 	}
 }
