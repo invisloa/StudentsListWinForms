@@ -34,11 +34,23 @@ namespace profZawadzkiLesson1
 
 		private void btnSumbit_Click(object sender, EventArgs e)
 		{
+
+
 			if (CanSaveCurrentInputData())
 			{
-				EmployeesList.Add(new Employee(name, lastName, employeeId, department));
-				ClearTxtControls();
-				ShowEmployeesFromList(EmployeesList);
+				if ((EmployeesList.FirstOrDefault(x => x.employeeID == employeeId)) == null)
+				{
+					EmployeesList.Add(new Employee(name, lastName, employeeId, department));
+					ClearTxtControls();
+					ShowEmployeesFromList(EmployeesList);
+					MessageBox.Show($"Dodano pracownika: {employeeId}");
+				}
+				else
+				{
+					MessageBox.Show($"Pracownik o nr ID: {employeeId} już istnieje");
+
+				}
+
 			}
 		}
 		void ClearTxtControls()
@@ -69,6 +81,7 @@ namespace profZawadzkiLesson1
 		{
 			EmployeesList.Clear();
 			dgvStudentsList.Rows.Clear();
+			ClearTxtControls();
 		}
 		void ShowEmployeesFromList(List<Employee> employeesList)
 		{
@@ -98,12 +111,13 @@ namespace profZawadzkiLesson1
 					employeeToChange.LastName = lastName;
 					employeeToChange.Department = department;
 					MessageBox.Show($"Aktualizacja studenta o nr ID: {employeeId}");
-
 				}
 			}
 			else
 			{
 				MessageBox.Show("Niepoprawne dane do aktualizacji");
+				ClearTxtControls();
+
 			}
 		}
 		bool CanSaveCurrentInputData()
@@ -132,6 +146,7 @@ namespace profZawadzkiLesson1
 				MessageBox.Show("Podaj poprawny departament");
 				return false;
 			}
+			ClearTxtControls();
 			return true;
 
 		}

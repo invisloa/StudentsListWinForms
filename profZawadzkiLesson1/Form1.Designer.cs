@@ -160,7 +160,7 @@
 			btnSumbit.Name = "btnSumbit";
 			btnSumbit.Size = new Size(105, 25);
 			btnSumbit.TabIndex = 6;
-			btnSumbit.Text = "Dodaj studenta";
+			btnSumbit.Text = "Dodaj pracownika";
 			btnSumbit.UseVisualStyleBackColor = true;
 			btnSumbit.Click += btnSumbit_Click;
 			// 
