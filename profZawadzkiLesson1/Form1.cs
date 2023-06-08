@@ -1,4 +1,4 @@
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
@@ -6,13 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace profZawadzkiLesson1
 {
 	public partial class Form1 : Form
 	{
+		string name;
+		string lastName;
+		int employeeId;
+		string department;
 
-		public List<Employee> StudentsList = new List<Employee>();
+		public List<Employee> EmployeesList = new List<Employee>();
 		public List<Employee> SearchList = new List<Employee>();
 		public Form1()
 		{
@@ -29,54 +34,12 @@ namespace profZawadzkiLesson1
 
 		private void btnSumbit_Click(object sender, EventArgs e)
 		{
-			string name = txtBoxName.Text;
-			string lastName = txtBoxLastName.Text;
-			int employeeId;
-			string department = DepertmentTextBox.Text;
-			if (string.IsNullOrEmpty(name))
+			if (CanSaveCurrentInputData())
 			{
-				MessageBox.Show("Name is required.");
-				return;
+				EmployeesList.Add(new Employee(name, lastName, employeeId, department));
+				ClearTxtControls();
+				ShowEmployeesFromList(EmployeesList);
 			}
-
-			if (string.IsNullOrEmpty(lastName))
-			{
-				MessageBox.Show("Last name is required.");
-				return;
-			}
-			if (!int.TryParse(txtBoxStudentsId.Text, out employeeId))
-			{
-				MessageBox.Show("ID is required.");
-				return;
-			}
-			if (string.IsNullOrEmpty(department))
-			{
-				MessageBox.Show("Department name is required.");
-				return;
-			}
-
-
-			if (SearchBox.Text == "" || dgvStudentsList.Rows.Count != 1)
-			{
-				StudentsList.Add(new Employee(name, lastName, employeeId, department));
-			}
-			else if (SearchBox.Text.Length > 0 && dgvStudentsList.Rows.Count == 1)
-			{
-				int searcherdID = Int32.Parse((dgvStudentsList.Rows[0].Cells[3].Value).ToString());
-				var employeeToChange = StudentsList.FirstOrDefault(x => x.employeeID == searcherdID);
-				employeeToChange.employeeID = employeeId;
-				employeeToChange.Name = name;
-				employeeToChange.LastName = lastName;
-				employeeToChange.Department = department;
-			}
-
-			ClearTxtControls();
-			ShowEmployeesFromList(StudentsList);
-
-		}
-		private void btnShowStudents_Click(object sender, EventArgs e)
-		{
-			ShowEmployeesFromList(StudentsList);
 		}
 		void ClearTxtControls()
 		{
@@ -90,7 +53,7 @@ namespace profZawadzkiLesson1
 		private void SearchBox_TextChanged(object sender, EventArgs e)
 		{
 			SearchList.Clear();
-			SearchList = StudentsList.Where(x => x.employeeID.ToString().Contains(SearchBox.Text.ToLower())).ToList();
+			SearchList = EmployeesList.Where(x => x.employeeID.ToString().Contains(SearchBox.Text.ToLower())).ToList();
 			ShowEmployeesFromList(SearchList);
 		}
 		private void SearchBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -104,7 +67,7 @@ namespace profZawadzkiLesson1
 
 		private void btnClearStudentsList_Click(object sender, EventArgs e)
 		{
-			StudentsList.Clear();
+			EmployeesList.Clear();
 			dgvStudentsList.Rows.Clear();
 		}
 		void ShowEmployeesFromList(List<Employee> employeesList)
@@ -122,6 +85,68 @@ namespace profZawadzkiLesson1
 				}
 			}
 		}
+		void UpdateEmployeeData()
+		{
+			if (SearchList.Count == 1 && SearchBox.Text != "")
+			{
+				if (CanSaveCurrentInputData())
+				{
+					int searchedEmployeeID = Int32.Parse((dgvStudentsList.Rows[0].Cells[3].Value).ToString());
+					var employeeToChange = EmployeesList.FirstOrDefault(x => x.employeeID == searchedEmployeeID);
+					employeeToChange.employeeID = employeeId;
+					employeeToChange.Name = name;
+					employeeToChange.LastName = lastName;
+					employeeToChange.Department = department;
+					MessageBox.Show($"Aktualizacja studenta o nr ID: {employeeId}");
 
+				}
+			}
+			else
+			{
+				MessageBox.Show("Niepoprawne dane do aktualizacji");
+			}
+		}
+		bool CanSaveCurrentInputData()
+		{
+			name = txtBoxName.Text;
+			lastName = txtBoxLastName.Text;
+			department = DepertmentTextBox.Text;
+			if (string.IsNullOrEmpty(txtBoxName.Text))
+			{
+				MessageBox.Show("Podaj poprawne imię");
+				return false;
+			}
+
+			if (string.IsNullOrEmpty(txtBoxLastName.Text))
+			{
+				MessageBox.Show("Podaj poprawne nazwisko");
+				return false;
+			}
+			if (!int.TryParse(txtBoxStudentsId.Text, out employeeId))
+			{
+				MessageBox.Show("Podaj poprawne ID");
+				return false;
+			}
+			if (string.IsNullOrEmpty(DepertmentTextBox.Text))
+			{
+				MessageBox.Show("Podaj poprawny departament");
+				return false;
+			}
+			return true;
+
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			UpdateEmployeeData();
+			ShowEmployeesFromList(EmployeesList);
+
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			ShowEmployeesFromList(EmployeesList);
+
+		}
 	}
 }

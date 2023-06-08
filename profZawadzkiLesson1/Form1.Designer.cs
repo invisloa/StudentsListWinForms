@@ -42,6 +42,8 @@
 			SearchBox = new TextBox();
 			label2 = new Label();
 			DepertmentTextBox = new TextBox();
+			button2 = new Button();
+			button3 = new Button();
 			((System.ComponentModel.ISupportInitialize)dgvStudentsList).BeginInit();
 			SuspendLayout();
 			// 
@@ -89,9 +91,9 @@
 			NameLabel.Margin = new Padding(5, 0, 5, 0);
 			NameLabel.MaximumSize = new Size(43, 17);
 			NameLabel.Name = "NameLabel";
-			NameLabel.Size = new Size(43, 17);
+			NameLabel.Size = new Size(35, 17);
 			NameLabel.TabIndex = 3;
-			NameLabel.Text = "Name";
+			NameLabel.Text = "Imię:";
 			// 
 			// LastNameLabel
 			// 
@@ -102,32 +104,32 @@
 			LastNameLabel.Margin = new Padding(5, 0, 5, 0);
 			LastNameLabel.MaximumSize = new Size(67, 17);
 			LastNameLabel.Name = "LastNameLabel";
-			LastNameLabel.Size = new Size(67, 17);
+			LastNameLabel.Size = new Size(66, 17);
 			LastNameLabel.TabIndex = 4;
-			LastNameLabel.Text = "Last name";
+			LastNameLabel.Text = "Nazwisko:";
 			// 
 			// StudentsNoLabel
 			// 
 			StudentsNoLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			StudentsNoLabel.AutoSize = true;
 			StudentsNoLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			StudentsNoLabel.Location = new Point(374, 20);
+			StudentsNoLabel.Location = new Point(428, 20);
 			StudentsNoLabel.Margin = new Padding(5, 0, 5, 0);
 			StudentsNoLabel.Name = "StudentsNoLabel";
-			StudentsNoLabel.Size = new Size(81, 17);
+			StudentsNoLabel.Size = new Size(23, 17);
 			StudentsNoLabel.TabIndex = 5;
-			StudentsNoLabel.Text = "Employee ID";
+			StudentsNoLabel.Text = "ID:";
 			// 
 			// btnClearStudentsList
 			// 
 			btnClearStudentsList.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			btnClearStudentsList.Location = new Point(652, 17);
-			btnClearStudentsList.MaximumSize = new Size(105, 25);
+			btnClearStudentsList.Location = new Point(640, 110);
+			btnClearStudentsList.MaximumSize = new Size(155, 25);
 			btnClearStudentsList.MinimumSize = new Size(105, 25);
 			btnClearStudentsList.Name = "btnClearStudentsList";
-			btnClearStudentsList.Size = new Size(105, 25);
+			btnClearStudentsList.Size = new Size(155, 25);
 			btnClearStudentsList.TabIndex = 9;
-			btnClearStudentsList.Text = "Clear list";
+			btnClearStudentsList.Text = "Wyczyść wszystkich";
 			btnClearStudentsList.UseVisualStyleBackColor = true;
 			btnClearStudentsList.Click += btnClearStudentsList_Click;
 			// 
@@ -153,12 +155,12 @@
 			// 
 			btnSumbit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			btnSumbit.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			btnSumbit.Location = new Point(652, 56);
+			btnSumbit.Location = new Point(47, 110);
 			btnSumbit.MaximumSize = new Size(105, 25);
 			btnSumbit.Name = "btnSumbit";
 			btnSumbit.Size = new Size(105, 25);
 			btnSumbit.TabIndex = 6;
-			btnSumbit.Text = "Submit/Update";
+			btnSumbit.Text = "Dodaj studenta";
 			btnSumbit.UseVisualStyleBackColor = true;
 			btnSumbit.Click += btnSumbit_Click;
 			// 
@@ -175,21 +177,21 @@
 			label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			label1.AutoSize = true;
 			label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label1.Location = new Point(531, 113);
+			label1.Location = new Point(674, 17);
 			label1.Name = "label1";
-			label1.Size = new Size(63, 17);
+			label1.Size = new Size(44, 17);
 			label1.TabIndex = 11;
-			label1.Text = "Search ID";
+			label1.Text = "Szukaj";
 			// 
 			// SearchBox
 			// 
 			SearchBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			SearchBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			SearchBox.Location = new Point(642, 110);
+			SearchBox.Location = new Point(605, 51);
 			SearchBox.MaximumSize = new Size(190, 25);
 			SearchBox.MinimumSize = new Size(190, 25);
 			SearchBox.Name = "SearchBox";
-			SearchBox.PlaceholderText = "Type search criteria...";
+			SearchBox.PlaceholderText = "Podaj kryteria szukania...";
 			SearchBox.Size = new Size(190, 25);
 			SearchBox.TabIndex = 12;
 			SearchBox.TextChanged += SearchBox_TextChanged;
@@ -200,12 +202,12 @@
 			label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 			label2.AutoSize = true;
 			label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-			label2.Location = new Point(374, 59);
+			label2.Location = new Point(364, 59);
 			label2.Margin = new Padding(5, 0, 5, 0);
 			label2.Name = "label2";
-			label2.Size = new Size(77, 17);
+			label2.Size = new Size(87, 17);
 			label2.TabIndex = 14;
-			label2.Text = "Depertment";
+			label2.Text = "Departament:";
 			// 
 			// DepertmentTextBox
 			// 
@@ -219,12 +221,40 @@
 			DepertmentTextBox.Size = new Size(87, 25);
 			DepertmentTextBox.TabIndex = 13;
 			// 
+			// button2
+			// 
+			button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			button2.Location = new Point(182, 110);
+			button2.MaximumSize = new Size(105, 25);
+			button2.Name = "button2";
+			button2.Size = new Size(105, 25);
+			button2.TabIndex = 15;
+			button2.Text = "Aktualizuj";
+			button2.UseVisualStyleBackColor = true;
+			button2.Click += button2_Click;
+			// 
+			// button3
+			// 
+			button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			button3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+			button3.Location = new Point(477, 110);
+			button3.MaximumSize = new Size(155, 25);
+			button3.Name = "button3";
+			button3.Size = new Size(155, 25);
+			button3.TabIndex = 16;
+			button3.Text = "Pokaż wszystkich";
+			button3.UseVisualStyleBackColor = true;
+			button3.Click += button3_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(11F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.Silver;
 			ClientSize = new Size(844, 461);
+			Controls.Add(button3);
+			Controls.Add(button2);
 			Controls.Add(label2);
 			Controls.Add(DepertmentTextBox);
 			Controls.Add(SearchBox);
@@ -266,5 +296,7 @@
 		private Button button1;
 		private Label label2;
 		private TextBox DepertmentTextBox;
+		private Button button2;
+		private Button button3;
 	}
 }
